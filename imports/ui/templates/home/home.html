@@ -1,0 +1,19 @@
+<template name="home">
+<div class="container">
+    <div class="page-header">
+        <h3>Tasks</h3>
+    </div>
+    {{> quickForm collection=formCollection id="taskInsert" type="insert"}}
+<hr>
+    {{> list}}
+</div>
+</template>
+
+
+<template name="list">
+    <ul class="list-group">
+      {{#each task}}
+          <li class="list-group-item">{{name}}</li>
+      {{/each}}
+    </ul>
+</template>
