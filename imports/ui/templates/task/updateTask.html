@@ -1,0 +1,9 @@
+<template name="updateTask">
+  <div class="container">
+    <div class="page-header">
+      <h3>Update Task</h3>
+    </div>
+    {{> quickForm collection=formCollection omitFields="secret" doc=this id="taskUpdate" type="method-update" meteormethod="task.update"}}
+    <hr>
+  </div>
+</template>
