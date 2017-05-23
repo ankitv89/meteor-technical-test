@@ -30,3 +30,4 @@ iron:router
 twbs:bootstrap
 useraccounts:iron-routing
 meteortoys:allthings
+mdg:validated-method
