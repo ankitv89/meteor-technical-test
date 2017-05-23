@@ -3,7 +3,7 @@
     <div class="page-header">
         <h3>Tasks</h3>
     </div>
-    {{> quickForm collection=formCollection id="taskInsert" type="insert"}}
+    {{> quickForm collection=formCollection id="taskInsert" type="method" meteormethod="task.add"}}
 <hr>
     {{> list}}
 </div>

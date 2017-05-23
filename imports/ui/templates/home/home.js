@@ -1,7 +1,14 @@
-import './home.html'
-import { Tasks } from '../../../api/collections/collections'
 import { Template } from 'meteor/templating';
+import { Tracker } from 'meteor/tracker';
 
+import { Tasks } from '../../../api/collections/collections'
+import './home.html'
+
+Template.home.onCreated(function() {
+  Tracker.autorun(() => {
+    Meteor.subscribe('tasks');
+  });
+});
 
 Template.home.helpers({
     formCollection() {
