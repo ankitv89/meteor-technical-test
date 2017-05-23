@@ -11,3 +11,18 @@ Router.route('/', {
     this.render('home');
   }
 });
+
+AccountsTemplates.configure({
+    defaultLayout: 'mainLayout',
+});
+
+AccountsTemplates.configureRoute('signIn', {
+    name: 'login',
+    path: '/login',
+    layoutTemplate: 'mainLayout',
+    redirect: '/',
+});
+
+Router.plugin('ensureSignedIn', {
+    except: ['index', 'login']
+});
