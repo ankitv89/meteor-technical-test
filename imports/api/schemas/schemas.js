@@ -20,7 +20,12 @@ Tasks.attachSchema(new SimpleSchema({
     secret : {
         type: String,
         label : "Task Secret",
-        max: 50
+        max: 50,
+        autoValue: function () {
+          if (this.isUpdate) {
+            return this.unset();
+          }
+        }
     },
     authorId : {
         type: String,
@@ -45,4 +50,3 @@ Tasks.attachSchema(new SimpleSchema({
         }
     }
 }));
-
