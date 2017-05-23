@@ -13,7 +13,7 @@
 <template name="list">
     <ul class="list-group">
       {{#each task}}
-          <li class="list-group-item">{{name}}</li>
+          <li class="list-group-item">{{name}} <span class="pull-right"><a href="/task/{{_id}}">edit</a></span></li>
       {{/each}}
     </ul>
 </template>
