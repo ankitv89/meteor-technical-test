@@ -1,0 +1,6 @@
+1. Tasks Schema contained both autoValue and defaultValue.
+      ----> defaultValue removed
+2. Author ID could have been neglected in server-side validation because 'autoform' object in its schema is only used at client
+      ----> Moved autoform.autoValue to authorId schema
+3. SimpleSchema was not implemented in server as it wasn't imported anywhere in server code
+      ----> Imported in /imports/startup/server/index.js
