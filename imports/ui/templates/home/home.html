@@ -1,19 +1,24 @@
 <template name="home">
-<div class="container">
+  <div class="container">
     <div class="page-header">
-        <h3>Tasks</h3>
+      <h1>Tasks</h1>
+      <!--i>Submitted by</i> <b>Tabrez Ahmed M</b-->
+      <br>
+      <button class="logout btn right">Logout</button>
     </div>
-    {{> quickForm collection=formCollection id="taskInsert" type="insert"}}
-<hr>
+    <h3>Add Task</h3>
+    {{> quickForm collection=Tasks id="taskInsert"}}
+    <hr>
     {{> list}}
-</div>
+  </div>
 </template>
 
 
 <template name="list">
-    <ul class="list-group">
-      {{#each task}}
-          <li class="list-group-item">{{name}}</li>
-      {{/each}}
-    </ul>
+  <h3>Task List  (Click to edit)</h3>
+  <ul class="list-group">
+    {{#each Tasks.find}}
+      <li class="list-group-item"><a href="{{pathFor 'taskEdit' id=this._id}}">{{name}}</a></li>
+    {{/each}}
+  </ul>
 </template>

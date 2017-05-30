@@ -1,16 +1,32 @@
 import './home.html'
 import { Tasks } from '../../../api/collections/collections'
 import { Template } from 'meteor/templating';
+import sweetAlert from 'sweetalert';
 
 
-Template.home.helpers({
-    formCollection() {
-        return Tasks;
-    }
+Template.registerHelper('Tasks', function(){
+  return Tasks;
 });
 
-Template.list.helpers({
-   task : function(){
-       return Tasks.find().fetch();
-   }
+Template.body.events({
+  'click .logout'() {
+    Meteor.logout();
+  }
+});
+
+AutoForm.hooks({
+  taskInsert: {
+    onSubmit (task) {
+      Meteor.call("taskInsert", task, (error) => {
+        if(error){
+          sweetAlert("Error!", error.message , "error");
+          this.done();
+        } else {
+          sweetAlert("Success!", "Task added successfully", "success");
+          this.done(error);
+        }
+      });
+      return false;
+    }
+  }
 });

@@ -20,29 +20,27 @@ Tasks.attachSchema(new SimpleSchema({
     secret : {
         type: String,
         label : "Task Secret",
-        max: 50
+        max: 50,
+        optional: true,
+        custom(){
+          if(this.isInsert && !this.isSet)
+            return "required";
+        },
+        autoValue(){
+          if(this.isUpdate)
+            this.unset();
+        }
     },
     authorId : {
         type: String,
         autoform : {
             type: "hidden",
-            autoValue :function(){
-                if(Meteor.userId()){
-                    return Meteor.userId()
-                }
-                else {
-                    return 'Guest'
-                }
-            },
-            defaultValue : function(){
-                if(Meteor.userId()){
-                    return Meteor.userId()
-                }
-                else {
-                    return 'Guest'
-                }
-            },
+        },
+        autoValue :function(){
+          if(this.isInsert)
+            return this.userId;
+          else
+            this.unset();
         }
     }
 }));
-
