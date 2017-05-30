@@ -23,7 +23,6 @@ Tasks.attachSchema(new SimpleSchema({
         max: 50,
         optional: true,
         custom(){
-          console.log(this.isInsert, !this.isSet)
           if(this.isInsert && !this.isSet)
             return "required";
         },

@@ -7,7 +7,7 @@
       <button class="logout btn right">Logout</button>
     </div>
     <h3>Add Task</h3>
-    {{> quickForm collection="Tasks" id="taskInsert"}}
+    {{> quickForm collection=Tasks id="taskInsert"}}
     <hr>
     {{> list}}
   </div>
@@ -17,7 +17,7 @@
 <template name="list">
   <h3>Task List  (Click to edit)</h3>
   <ul class="list-group">
-    {{#each task}}
+    {{#each Tasks.find}}
       <li class="list-group-item"><a href="{{pathFor 'taskEdit' id=this._id}}">{{name}}</a></li>
     {{/each}}
   </ul>

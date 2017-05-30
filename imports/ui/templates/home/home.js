@@ -4,29 +4,29 @@ import { Template } from 'meteor/templating';
 import sweetAlert from 'sweetalert';
 
 
-Template.list.helpers({
-   task : function(){
-       return Tasks.find();
-   }
+Template.registerHelper('Tasks', function(){
+  return Tasks;
+});
+
+Template.body.events({
+  'click .logout'() {
+    Meteor.logout();
+  }
 });
 
 AutoForm.hooks({
   taskInsert: {
     onSubmit (task) {
       Meteor.call("taskInsert", task, (error) => {
-        if(error)
+        if(error){
           sweetAlert("Error!", error.message , "error");
-        else
+          this.done();
+        } else {
           sweetAlert("Success!", "Task added successfully", "success");
+          this.done(error);
+        }
       });
       return false;
-      this.done(error);
     }
   }
 });
-
-Template.body.events({
-  'click .logout': function(){
-    Meteor.logout();
-  }
-})

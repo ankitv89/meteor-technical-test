@@ -1,4 +1,5 @@
 import { Router } from 'meteor/iron:router'
+import { Tasks } from '../../api/collections/collections'
 import '../../ui/templates/home/home'
 import '../../ui/templates/taskEdit/index'
 import '../../ui/templates/loginForm/index'
