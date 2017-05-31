@@ -1,0 +1,7 @@
+Warning : file imports\api\collections\collections.js
+  Redundant import of Meteor. Imported but never used
+
+Warning : Older version bcrypt is used
+
+Warning : file imports\ui\templates\home\home.html
+  taskInsert form submits even with no values

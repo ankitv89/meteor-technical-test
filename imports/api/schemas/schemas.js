@@ -1,22 +1,14 @@
 import  SimpleSchema  from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 
-
 import { Tasks } from '../collections/collections'
-
-let Schemas = {}
-
-
-Schemas.addtask = {}
-
 
 Tasks.attachSchema(new SimpleSchema({
     name: {
         type: String,
         label: 'Task Name',
         max: 50,
-    } ,
-
+    },
     secret : {
         type: String,
         label : "Task Secret",
@@ -45,4 +37,3 @@ Tasks.attachSchema(new SimpleSchema({
         }
     }
 }));
-
