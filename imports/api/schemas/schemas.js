@@ -4,6 +4,8 @@ SimpleSchema.extendOptions(['autoform']);
 
 import { Tasks } from '../collections/collections'
 
+
+
 let Schemas = {}
 
 
@@ -45,4 +47,3 @@ Tasks.attachSchema(new SimpleSchema({
         }
     }
 }));
-

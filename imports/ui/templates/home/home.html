@@ -3,9 +3,12 @@
     <div class="page-header">
         <h3>Tasks</h3>
     </div>
-    {{> quickForm collection=formCollection id="taskInsert" type="insert"}}
-<hr>
-    {{> list}}
+    {{#if currentUser}}
+      <button class="btn btn-danger logOut">LogOut</button>
+      {{> quickForm collection=formCollection id="taskInsert" type="insert"}}
+      <hr>
+      {{> list}}
+    {{/if}}
 </div>
 </template>
 
@@ -13,7 +16,9 @@
 <template name="list">
     <ul class="list-group">
       {{#each task}}
-          <li class="list-group-item">{{name}}</li>
+          <li class="list-group-item clearfix">{{name}}
+            <a href="/edit/{{_id}}" class="btn btn-primary pull-right">Edit</a>
+          </li>
       {{/each}}
     </ul>
 </template>
