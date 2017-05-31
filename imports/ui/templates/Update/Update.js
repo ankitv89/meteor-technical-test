@@ -2,10 +2,12 @@ import './Update.html'
 import { Tasks } from '../../../api/collections/collections'
 
 Template.updateTask.onCreated(function listOnCreated() {
+  //Subscribe to current Task
   Meteor.subscribe('Task',Router.current().params.taskId);
 });
 
 Template.updateTask.events({
+  //When user submits a Task
   'submit #taskUpdate':function(event){
     event.preventDefault();
     const target = event.target;

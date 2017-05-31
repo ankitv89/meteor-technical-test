@@ -2,9 +2,10 @@ import { Meteor } from 'meteor/meteor'
 
 import { Tasks } from '../collections/collections'
 
+//Allow Only logged in users to insert Tasks
 Tasks.allow({
   insert: function(userId,doc) {
-    return (!!userId);
+    return ((!!userId) && (doc.name!="") && (doc.secret!=""));
   }
 });
 

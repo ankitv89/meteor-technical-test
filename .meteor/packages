@@ -28,4 +28,3 @@ iron:router
 twbs:bootstrap
 useraccounts:iron-routing
 meteortoys:allthings
-accounts-ui

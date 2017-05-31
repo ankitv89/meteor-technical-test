@@ -17,7 +17,8 @@
     <ul class="list-group">
       {{#each task}}
           <li class="list-group-item clearfix">{{name}}
-            <a href="/edit/{{_id}}" class="btn btn-primary pull-right">Edit</a>
+            <a class="btn btn-danger deleteTask pull-right">Delete </a>
+            <a href="/edit/{{_id}}" class="btn btn-primary pull-right">Edit </a>
           </li>
       {{/each}}
     </ul>
