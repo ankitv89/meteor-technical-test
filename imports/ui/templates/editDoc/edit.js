@@ -1,10 +1,12 @@
-import './home.html'
+import './edit.html'
 import { Tasks } from '../../../../lib/collections/collections'
 import { Template } from 'meteor/templating';
 
-AutoForm.addHooks(['taskInsert'], {
+
+AutoForm.addHooks(['taskUpdate'], {
     onSuccess: function(formType, result) {
-        // this.resetForm()
+        Router.go('/home');
+        this.resetForm()
     },
     onError: function (formType, error) {
         if (error && error.message) {
@@ -14,20 +16,14 @@ AutoForm.addHooks(['taskInsert'], {
 }) ;
 
 
-Template.home.helpers({
+Template.edit.helpers({
     formCollection() {
         return Tasks;
     }
 });
 
-Template.list.helpers({
-   task : function(){
-       return Tasks.find().fetch();
-   }
-});
+Template.edit.events({
+   /* 'click .btn-primary':function () {
 
-Template.list.events({
-    'click #edit' : function(){
-        Router.go('/edit/'+this._id);
-    }
+    }*/
 });

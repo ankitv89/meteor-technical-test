@@ -1,0 +1,13 @@
+
+1. Schema level validation we can place in custom function .
+
+2. Schema is containing auto value and default value.
+
+3. The gud practice is structuring a folder like lib , client and server
+        lib - schemas
+        client - client side code
+        server - server side code
+
+4. We can update meteor version .
+
+5. Am not concentrating on UI . So UI can be better .
