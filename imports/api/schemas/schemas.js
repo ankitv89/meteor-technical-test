@@ -2,7 +2,7 @@ import  SimpleSchema  from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 
 
-import { Tasks } from '../collections/collections'
+import { Tasks } from '../../../lib/collections/collections'
 
 let Schemas = {}
 
